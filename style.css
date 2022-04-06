@@ -1,0 +1,39 @@
+h1{
+  color: goldenrod;
+}
+
+body{
+  font-family: Helvetica;
+  text-align: center;
+  background-image: url("table.jpg");
+  background-size: cover;
+  color: white;
+  font-size: 40px;
+  margin:0;
+  padding:0;
+
+}
+
+#message-el{
+  font-style: italic;
+  margin-bottom: 100px;
+}
+
+#startGame-btn{
+  border: none;
+  background-color: goldenrod;
+  width: 300px;
+  color: #016f32;
+  padding: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  font-size: 35px;
+}
+
+.container{
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-bottom: 15px;
+  margin: auto;
+  height: auto;
+  
+}
