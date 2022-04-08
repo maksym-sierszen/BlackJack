@@ -1,20 +1,28 @@
 // Setting variables
 let hasBlackJack = false
-let isAlive = true
+let isAlive = false
 let message =""
+let sum = 0
+let cards = []
 let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
-let firstCard = 0
-let secondCard = 0
-let sum = 0
-let cards = []
 
-// Generating two random cards at the start of new game
-function startingCards(){
-  firstCard = Math.floor(Math.random() * 11) + 2
-  secondCard = Math.floor(Math.random() * 11) + 2
-  cards = [firstCard, secondCard]
+// Generate a random card
+function getRandomCard(){
+  let num = Math.floor(Math.random() * 13) + 1
+  if(num === 1){
+    return  11
+  } else if (num>10){
+    return  10
+  } else {
+    return num
+  }
+} 
+
+// Modify the message line
+function messageLine(){
+  messageEl.textContent = message
 }
 
 // Conditions 
@@ -29,7 +37,7 @@ function conditions(){
       message = "You're out of the game:("
       isAlive = false
     }
-    messageEl.textContent = message
+    messageLine(message)
  }
 
 // Displaying all of the cards
@@ -54,25 +62,38 @@ function showSum(){
    sumEl.textContent += sum
   }
 
+function renderGame() {
+  showSum()
+  showCards()
+  conditions()
+}
+
 
 // Starting the game
 function startGame() {
-  startingCards()
-  conditions()
-  showSum()
-  showCards()
-    
+  isAlive = true
+  // Generating two starting cards
+  let firstCard = getRandomCard()
+  let secondCard = getRandomCard()
+  cards = [firstCard, secondCard]
+  // Rendering the game
+  renderGame()
   }
   
 // Drawing a new card to your hand
-function drawCard(){ 
-  let newCard = Math.floor(Math.random() * 11) + 2
-  cards.push(newCard)
-  showCards()
-  showSum()
-  conditions() 
+function drawCard(){
+  conditions()
+  if(isAlive === false){
+    message = "You have to start a new game."
+    messageLine()
+  } else {
+    let newCard = getRandomCard()
+    cards.push(newCard)
+    renderGame()
+  } 
+  
+  
 }
-
 // CHECKING THE AGE
 /*let age = prompt("Please enter your age")
 
