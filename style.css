@@ -19,15 +19,19 @@ body{
   margin-bottom: 100px;
 }
 
-#startGame-btn{
+.button{
   border: none;
   background-color: goldenrod;
-  width: 300px;
+  width: 20rem;
   color: #016f32;
   padding: 20px;
   font-weight: bold;
   border-radius: 20px;
   font-size: 35px;
+  cursor: pointer;
+  margin: auto;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .container{
@@ -35,5 +39,4 @@ body{
   padding-bottom: 15px;
   margin: auto;
   height: auto;
-  
 }
