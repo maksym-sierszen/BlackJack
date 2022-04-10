@@ -8,6 +8,14 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 
+let player = {
+  name: "Per",
+  chips: 145
+}
+
+let playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips
+
 // Generate a random card
 function getRandomCard(){
   let num = Math.floor(Math.random() * 13) + 1
@@ -68,7 +76,6 @@ function renderGame() {
   conditions()
 }
 
-
 // Starting the game
 function startGame() {
   isAlive = true
@@ -82,14 +89,13 @@ function startGame() {
   
 // Drawing a new card to your hand
 function drawCard(){
-  conditions()
-  if(isAlive === false){
-    message = "You have to start a new game."
-    messageLine()
-  } else {
+  if(isAlive && !hasBlackJack){
     let newCard = getRandomCard()
     cards.push(newCard)
     renderGame()
+  } else {
+    message = "You have to start a new game."
+    messageLine()
   } 
   
   
